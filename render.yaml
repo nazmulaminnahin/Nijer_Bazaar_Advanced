@@ -1,0 +1,38 @@
+# Render Blueprint — one web service (API + built storefront/admin) + PostgreSQL.
+# Render dashboard → New → Blueprint → pick this repo.
+databases:
+  - name: nijer-bazaar-db
+    databaseName: nijer_bazaar
+    user: nijer_bazaar
+    plan: free            # free Postgres expires after 30 days; upgrade for a live store
+
+services:
+  - type: web
+    name: nijer-bazaar
+    runtime: node
+    plan: free
+    healthCheckPath: /api/health
+    buildCommand: >-
+      cd client && npm ci --include=dev && npm run build &&
+      cd ../server && npm ci --include=dev && npm run build &&
+      npm run db:migrate && npm run db:seed
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NODE_ENV
+        value: production
+      - key: DB_DRIVER
+        value: postgres
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nijer-bazaar-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_ADMIN_SECRET
+        generateValue: true
+      - key: SEED_ADMIN_PASSWORD
+        sync: false        # you type this in the dashboard (min. 8 chars)
+      - key: CLIENT_URL
+        sync: false        # your https://<service>.onrender.com URL

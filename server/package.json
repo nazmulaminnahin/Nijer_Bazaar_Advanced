@@ -22,6 +22,12 @@
   "author": "Nijer Bazaar",
   "license": "ISC",
   "devDependencies": {
+    "@types/supertest": "^7.2.1",
+    "nodemon": "^1.14.10",
+    "supertest": "^7.3.1",
+    "vitest": "^2.1.9"
+  },
+  "dependencies": {
     "@electric-sql/pglite": "^0.5.11",
     "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.19",
@@ -33,20 +39,12 @@
     "@types/nodemailer": "^8.0.2",
     "@types/pdfkit": "^0.17.7",
     "@types/pg": "^8.23.1",
-    "@types/supertest": "^7.2.1",
     "@types/web-push": "^3.6.4",
-    "drizzle-kit": "^0.31.11",
-    "nodemon": "^1.14.10",
-    "supertest": "^7.3.1",
-    "tsx": "^4.23.15",
-    "typescript": "^5.9.3",
-    "vitest": "^2.1.9"
-  },
-  "dependencies": {
     "bcryptjs": "^3.0.3",
     "bwip-js": "^4.11.4",
     "cors": "^2.8.6",
     "dotenv": "^18.0.8",
+    "drizzle-kit": "^0.31.11",
     "drizzle-orm": "^0.45.4",
     "express": "^5.3.0",
     "jsonwebtoken": "^9.0.3",
@@ -55,6 +53,8 @@
     "pdfkit": "^0.20.2",
     "pg": "^8.23.1",
     "sharp": "^0.35.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
     "web-push": "^3.6.7",
     "zod": "^4.6.7"
   }

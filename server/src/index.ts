@@ -78,7 +78,11 @@ export function createApp() {
   fs.mkdirSync(uploadRoot, { recursive: true });
   app.use(env.UPLOAD_PUBLIC_PREFIX, express.static(uploadRoot, { maxAge: '7d', fallthrough: true }));
 
-  app.get(['/', '/api', '/api/health'], (_req, res) => {
+  // When the built storefront (client/dist) exists, "/" must serve the website,
+  // so the JSON status is only exposed on "/" when there is no frontend build.
+  const clientDistDir = path.join(__dirname, '../../client/dist');
+  const hasClientBuild = fs.existsSync(path.join(clientDistDir, 'index.html'));
+  app.get(hasClientBuild ? ['/api', '/api/health'] : ['/', '/api', '/api/health'], (_req, res) => {
     res.json({
       success: true,
       message: '🛒 Nijer Bazaar API is running',
