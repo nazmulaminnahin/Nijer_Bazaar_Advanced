@@ -17,7 +17,6 @@
     "noFallthroughCasesInSwitch": true,
     "ignoreDeprecations": "5.0",
     //"baseUrl": ".",
-    "types": ["vite/client", "react", "react-dom"],
     "paths": { "@/*": ["./src/*"] }
   },
   "include": ["src"]
