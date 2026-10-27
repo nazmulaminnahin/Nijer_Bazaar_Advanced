@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+.env
+.env.local
+server/.pglite/
+server/uploads/
+server/seed-credentials.txt
+client/dist/
+.DS_Store
+*.log
+coverage/

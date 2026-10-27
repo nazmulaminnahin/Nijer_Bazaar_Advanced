@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-gray-50 text-ink-900 font-sans antialiased; }
+  ::selection { @apply bg-brand-200 text-brand-900; }
+  h1, h2, h3, h4 { @apply font-semibold tracking-tight; }
+  input, select, textarea, button { font-family: inherit; }
+  /* Numeric alignment for prices/tables */
+  .tnum { font-variant-numeric: tabular-nums; }
+}
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .card { @apply rounded-xl border border-gray-200 bg-white shadow-card; }
+  .label { @apply mb-1.5 block text-sm font-medium text-ink-700; }
+  .field { @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-ink-900 placeholder:text-gray-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200 disabled:bg-gray-50 disabled:text-gray-500; }
+  .field-error { @apply border-red-400 focus:border-red-500 focus:ring-red-100; }
+  .help { @apply mt-1 text-xs text-red-600; }
+  .table-th { @apply whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500; }
+  .table-td { @apply px-4 py-3 text-sm text-ink-700; }
+  .scrollbar-thin { scrollbar-width: thin; }
+}
